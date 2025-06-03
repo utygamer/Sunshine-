@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Who Loves More?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to top right, #ffe0f0, #fceeff);
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      border: 6px dashed #d63384;
+      border-radius: 40px;
+      background-color: #fff0f7;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #d63384;
+      animation: floatTitle 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatTitle {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    .btn {
+      background-color: #fff;
+      border: 3px solid #d63384;
+      color: #d63384;
+      padding: 20px 50px;
+      font-size: 1.5em;
+      border-radius: 40px;
+      margin: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 2;
+      position: relative;
+    }
+
+    .btn:hover {
+      background-color: #d63384;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    #message, #click-heart {
+      display: none;
+      opacity: 0;
+      transition: opacity 1.5s ease-in;
+      position: relative;
+      z-index: 2;
+    }
+
+    #message {
+      font-size: 2em;
+      color: #6c3483;
+      margin-top: 30px;
+    }
+
+    #click-heart {
+      font-size: 4em;
+      color: red;
+      cursor: pointer;
+      animation: bounce 1.2s infinite;
+      margin-top: 30px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .animated-object {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.8;
+    }
+
+    .cloud {
+      width: 100px;
+      top: 50px;
+      animation: cloudMove 20s linear infinite;
+    }
+
+    .flower, .chocolate {
+      width: 60px;
+      animation: floatUpDown 5s ease-in-out infinite;
+    }
+
+    .cloud1 { left: -120px; animation-delay: 0s; }
+    .cloud2 { top: 120px; left: -160px; animation-delay: 5s; }
+    .flower1 { top: 400px; left: 20%; }
+    .flower2 { top: 450px; left: 75%; }
+    .chocolate1 { top: 500px; left: 45%; }
+
+    @keyframes cloudMove {
+      0% { left: -120px; }
+      100% { left: 110%; }
+    }
+
+    @keyframes floatUpDown {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated objects -->
+<img class="animated-object cloud cloud1" src="https://i.imgur.com/WP0QpPa.png" alt="Cloud">
+<img class="animated-object cloud cloud2" src="https://i.imgur.com/WP0QpPa.png" alt="Cloud">
+<img class="animated-object flower flower1" src="https://i.imgur.com/XBQTe0N.png" alt="Flower">
+<img class="animated-object flower flower2" src="https://i.imgur.com/XBQTe0N.png" alt="Flower">
+<img class="animated-object chocolate chocolate1" src="https://i.imgur.com/LxLzEJf.png" alt="Chocolate">
+
+<!-- Main game container -->
+<div class="game-container">
+  <h1>Who Loves More?</h1>
+  <button class="btn" onclick="checkAnswer(false)">Manshi</button>
+  <button class="btn" onclick="checkAnswer(true)">Utkarsh</button>
+
+  <div id="message">🎁 Your treasure is here, Sunshine! 💖</div>
+  <div id="click-heart" onclick="goToTreasure()">❤️ Click it ❤️</div>
+</div>
+
+<script>
+  function checkAnswer(correct) {
+    if (correct) {
+      document.getElementById("message").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("message").style.opacity = 1;
+        document.getElementById("click-heart").style.display = "block";
+        document.getElementById("click-heart").style.opacity = 1;
+      }, 500);
+    } else {
+      alert("Oops! Try again, cutie 🌸");
+    }
+  }
+
+  function goToTreasure() {
+    window.location.href = "http://bit.ly/4jCA9Kr";
+  }
+</script>
+
+</body>
+</html>
